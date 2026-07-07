@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Заказать онлайн — Истина Зёрен</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-inner">
+
+  <div class="header-wrap" id="header-wrap">
+    <header class="header" id="header">
+      <nav class="header__nav">
+        <a href="index.html" class="header__link" data-text="Главная">Главная</a>
+        <a href="menu.html" class="header__link" data-text="Меню">Меню</a>
+        <a href="about.html" class="header__link" data-text="О нас">О нас</a>
+        <a href="order.html" class="header__link header__link--active" data-text="Заказать онлайн">Заказать онлайн</a>
+      </nav>
+    </header>
+
+    <div class="cart-wrap">
+      <button class="header__cart" type="button" id="cart-btn" aria-label="Корзина">
+        <span class="header__cart-count" id="cart-count" hidden>0</span>
+        <svg class="header__cart-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2S15.9 22 17 22s2-.9 2-2-.9-2-2-2zM7.16 14h9.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1 1 0 0 0 21.05 5H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.38-.68z"/>
+        </svg>
+      </button>
+      <aside class="cart-panel" id="cart-panel" hidden aria-label="Содержимое корзины">
+        <h2 class="cart-panel__title">Корзина</h2>
+        <p class="cart-panel__empty" id="cart-empty">Пока пусто — выберите блюда в меню</p>
+        <ul class="cart-panel__list" id="cart-list"></ul>
+        <div class="cart-panel__divider" id="cart-divider" hidden></div>
+        <div class="cart-panel__total" id="cart-total-row" hidden>
+          <span class="cart-panel__total-label">Итого</span>
+          <span class="cart-panel__total-price" id="cart-total">0 ₽</span>
+        </div>
+        <a href="order.html" class="btn btn--primary cart-panel__order" id="cart-order-btn" hidden>Заказать</a>
+      </aside>
+    </div>
+  </div>
+
+  <main class="page-content">
+    <h1 class="page-content__title">Заказать онлайн</h1>
+    <p class="page-content__text">Выберите время — мы приготовим заказ к вашему приходу. Оплата на месте.</p>
+
+    <form class="order-form">
+      <input type="text" placeholder="Ваше имя" required>
+      <input type="tel" placeholder="Телефон" required>
+
+      <div class="datetime-field" data-datetime-field>
+        <button type="button" class="datetime-field__trigger">
+          <span class="datetime-field__value">Выберите дату и время</span>
+        </button>
+        <input type="hidden" class="datetime-field__hidden" name="datetime" required>
+        <div class="datetime-field__popup" hidden>
+          <div class="datetime-field__panel">
+            <div class="datetime-field__calendar">
+              <div class="datetime-field__nav">
+                <button type="button" class="datetime-field__prev-month" aria-label="Предыдущий месяц">‹</button>
+                <span class="datetime-field__month-year"></span>
+                <button type="button" class="datetime-field__next-month" aria-label="Следующий месяц">›</button>
+              </div>
+              <div class="datetime-field__weekdays">
+                <span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span>
+                <span>Пт</span><span>Сб</span><span>Вс</span>
+              </div>
+              <div class="datetime-field__days"></div>
+            </div>
+            <div class="datetime-field__time">
+              <p class="datetime-field__time-title">Время</p>
+              <div class="datetime-field__hours"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="order-summary" id="order-summary">
+        <p class="order-summary__empty" id="order-summary-empty">Корзина пуста — добавьте блюда в <a href="menu.html">меню</a></p>
+        <ul class="order-summary__list" id="order-summary-list"></ul>
+        <div class="order-summary__divider" id="order-summary-divider" hidden></div>
+        <div class="order-summary__total" id="order-summary-total-row" hidden>
+          <span class="order-summary__total-label">Сумма заказа</span>
+          <span class="order-summary__total-price" id="order-summary-total">0 ₽</span>
+        </div>
+      </div>
+      <button type="submit" class="btn btn--primary">Отправить заказ</button>
+    </form>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
